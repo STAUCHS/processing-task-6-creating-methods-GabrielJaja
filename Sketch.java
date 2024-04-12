@@ -1,4 +1,5 @@
 import processing.core.PApplet;
+import java.util.Random;
 
 public class Sketch extends PApplet {
 	
@@ -16,39 +17,52 @@ public class Sketch extends PApplet {
   public void setup() {
     background(210, 255, 173);
   }
-  private void drawFlower (int X, int Y) {
+
+  private void colourChange (int PositionX ) {
+    Random myRandom = new Random();
+    if (PositionX >= 30) {
+      fill(myRandom.nextInt(255), myRandom.nextInt(255),myRandom.nextInt(255));
+    }
+  }
+
+  private void drawFlower (int PositionX, int PositionY) {
     // Petals
-    translate(60, 60);
+    translate(PositionX, PositionY);
     stroke(33, 99, 100);
     for (int intDegrees = 0; intDegrees <= 360; intDegrees += 45) {
       rotate((float) Math.toRadians(intDegrees));
       ellipse(0, 0, 15, 100);
     }
+
+   
+    
   // Circle 
       // noStroke();
       fill(233, 97, 80);
       circle(0, 0, 60);
-  }
+      resetMatrix();
+    }
   /**
    * Called repeatedly, anything drawn to the screen goes here
    */
   public void draw() {
-      drawFlower();
-    for (int drawFlower = (width / 5) / 2; drawFlower <= width; drawFlower += width / 5) {
-      for (int drawFlowerY = (height / 5) / 2; drawFlowerY <= height; drawFlower += height / 5) {
-        drawFlower();
-      }
+    for (int drawFlower = (width / 3) / 2; drawFlower <= width; drawFlower += width / 3) {
+      colourChange(drawFlower);
+      for (int drawFlowerY = (height / 3) / 2; drawFlowerY <= height; drawFlowerY += height / 3) {
+        resetMatrix();
+        colourChange(drawFlowerY);
+        drawFlower(drawFlower, drawFlowerY);
+     }
     }
   }
 
 
   /**
-   * Description
+   * A program that uses methods and parameters to 
    * 
+   * @param intPositionX 
    * @param 
-   * @param 
-   * @return
-   * @author 
+   * @author: Gabriel Jaja
    */
 
 
