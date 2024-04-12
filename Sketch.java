@@ -16,12 +16,25 @@ public class Sketch extends PApplet {
   public void setup() {
     background(210, 255, 173);
   }
-
+  private void drawFlower (int ciricle) {
+    // Petals
+    translate(450, 450);
+    stroke(0);
+    for (int intDegrees = 0; intDegrees <= 360; intDegrees += 45) {
+      rotate((float) Math.toRadians(intDegrees));
+      ellipse(0, 0, 15, 250);
+    }
+  // Circle 
+      noStroke();
+      fill(24, 97, 8);
+      circle(0, 0, 60);
+  }
   /**
    * Called repeatedly, anything drawn to the screen goes here
    */
   public void draw() {
-    
+      drawFlower(circle);
+
   }
 
   /**
@@ -33,6 +46,6 @@ public class Sketch extends PApplet {
    * @author 
    */
 
-  
+
   
 }
