@@ -9,14 +9,19 @@ public class Sketch extends PApplet {
   public void setup() {
     background(210, 255, 173);
   }
-
+  
   private void colourChange (int PositionX ) {
     Random myRandom = new Random();
     if (PositionX >= 30) {
       fill(myRandom.nextInt(255), myRandom.nextInt(255),myRandom.nextInt(255));
     }
   }
-
+/**
+  * A code drawFlower that draws the the nucleus in a grid and rotates each ellipse by 45 degrees
+  * @param intPositionX: This parameter changes the location of the nucleus along the X-axis
+  * @param intPositionY: This parameter changes the location of the nucleus along the Y-axis
+  * @author: Gabriel Jaja
+  */
   private void drawFlower (int PositionX, int PositionY) {
     // Petals
     translate(PositionX, PositionY);
@@ -26,6 +31,14 @@ public class Sketch extends PApplet {
       ellipse(0, 0, 15, 100);
     }
   }
+
+  /**
+  * A code drawTinyNucleus that draws the "two eyes" in between the shape of the nucleus 
+  * 
+   * @param NsPositionX: This parameter changes the location of the nucleus along the X-axis
+   * @param NstPositionY: This parameter changes the location of the nucleus along the Y-axis
+   * @author: Gabriel Jaja
+   */
 
   private void drawTinynucleus (int NsPositionX, int NsPositionY) {
   translate(NsPositionX, NsPositionY);
@@ -47,7 +60,7 @@ public class Sketch extends PApplet {
       }
     }
 
-   // Eyes inside Circle
+// Eyes inside Circle
    noStroke();
    fill(233, 97, 80);
    circle(0, 0, 5);
@@ -68,13 +81,4 @@ public class Sketch extends PApplet {
       }
     }
   }
-  /**
-   * A program that uses methods and parameters to 
-   * 
-   * @param intPositionX: This parameter changes the location of the nucleus along the X-axis
-   * @param intPositionY: This parameter changes the location of the nucleus along the Y-axis
-   * @param NsPosition: This parameter changes the location of the the 
-   * @author: Gabriel Jaja
-   */
-  
-    }
+}
